@@ -33,25 +33,28 @@ label_rule_order = tk.Label(root, text="请选择新文件名规则：")
 label_rule_order.pack()
 
 rule_order = tk.StringVar()
-rule_order.set("title,author,year,ssid")
+rule_order.set("title,author,publisher,ssid")
 
-radio_button_1 = tk.Radiobutton(root, text="书名,作者,年份_ssid", variable=rule_order, value="title,author,year,ssid")
+radio_button_1 = tk.Radiobutton(root, text="书名,作者,出版社_ssid", variable=rule_order, value="title,author,publisher,ssid")
 radio_button_1.pack()
 
-radio_button_2 = tk.Radiobutton(root, text="作者,书名,年份_ssid", variable=rule_order, value="author,title,year,ssid")
+radio_button_2 = tk.Radiobutton(root, text="书名,作者,年份_ssid", variable=rule_order, value="title,author,publish_date,ssid")
 radio_button_2.pack()
 
-radio_button_3 = tk.Radiobutton(root, text="书名,作者,出版社,年份_ssid", variable=rule_order, value="title,author,publisher,year,ssid")
+radio_button_3 = tk.Radiobutton(root, text="书名,作者,出版社,年份_ssid", variable=rule_order, value="title,author,publisher,publish_date,ssid")
 radio_button_3.pack()
 
-radio_button_4 = tk.Radiobutton(root, text="作者,书名,出版社,年份_ssid", variable=rule_order, value="author,title,publisher,year,ssid")
+radio_button_4 = tk.Radiobutton(root, text="作者,书名,年份_ssid", variable=rule_order, value="author,title,publish_date,ssid")
 radio_button_4.pack()
 
-radio_button_5 = tk.Radiobutton(root, text="ssid", variable=rule_order, value="ssid")
+radio_button_5 = tk.Radiobutton(root, text="作者,书名,出版社,年份_ssid", variable=rule_order, value="author,title,publisher,publish_date,ssid")
 radio_button_5.pack()
 
-radio_button_6 = tk.Radiobutton(root, text="ssid_md5", variable=rule_order, value="ssid,md5")
+radio_button_6 = tk.Radiobutton(root, text="ssid", variable=rule_order, value="ssid")
 radio_button_6.pack()
+
+radio_button_7 = tk.Radiobutton(root, text="ssid_md5", variable=rule_order, value="ssid,md5")
+radio_button_7.pack()
 
 # 定义重命名按钮
 def rename_files_in_folder(folder):
@@ -65,7 +68,7 @@ def rename_files_in_folder(folder):
             if match:
                 ssid = match.group(0)
                 # 执行SQL查询
-                c.execute("SELECT ssid,title,author,publisher,year FROM book_infos WHERE ssid = ?", (ssid,))
+                c.execute("SELECT ssid,title,author,publisher,publish_date FROM book_infos WHERE ssid = ?", (ssid,))
                 result = c.fetchone()
                 if result:
                     # 构造新的文件名
@@ -81,7 +84,7 @@ def rename_files_in_folder(folder):
                                 new_filename += result[2]
                             elif r == "publisher":
                                 new_filename += result[3]
-                            elif r == "year":
+                            elif r == "publish_date":
                                 new_filename += result[4]
                             if i < 2:
                                 new_filename += ", "
