@@ -1,8 +1,9 @@
-# dx_rename
-根据511书表，批量重命名读秀压缩包、pdf
+# 界面预览
+![image](https://github.com/bigmouse0001/dx_rename/assets/119995454/e90163ab-9029-4744-8397-55d5794ee1b3)
+
 
 ### 前置依赖
-1. python3
+1. python3(推荐3.11.4)
 2. pip install sqlite
 3. pip install tkinter
 
