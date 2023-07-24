@@ -1,4 +1,6 @@
-# 界面预览
+## 功能介绍
+使用本地sqlite3数据库，对含ssid号的文件进行批量重命名，一次可处理上千个文件
+
 ![image](https://github.com/bigmouse0001/dx_rename/assets/119995454/e90163ab-9029-4744-8397-55d5794ee1b3)
 
 
