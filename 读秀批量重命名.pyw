@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 # 连接SQLite数据库(路径不带双引号)
-conn = sqlite3.connect(r'C:\Users\Administrator\Desktop\批量重命名\duxiu511_pls40k.db')
+conn = sqlite3.connect(r'数据库路径')
 c = conn.cursor()
 
 # 定义GUI窗口
